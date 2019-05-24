@@ -3,7 +3,8 @@ var passport = require('passport');
 
 // The root route renders our only view
 router.get('/', function(req, res) {
-  res.redirect('/users');
+  res.render('index', {title: 'SoulSpace', user: null});
+ 
 });
 
 // Google OAuth login route
