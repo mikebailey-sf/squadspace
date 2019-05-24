@@ -1,0 +1,11 @@
+<%- include ../partial/header %>
+<h1><%= user.name %>'s songs</h1>
+
+<ul>
+    <% user.songs.forEach(function(song){ %>
+        <li><%= song %></li>
+    <% }); %>
+</ul>
+
+
+<%- include ../partial/footer %>

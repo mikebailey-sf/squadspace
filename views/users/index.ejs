@@ -3,7 +3,7 @@
     <p>Welcome to <%= title %></p>
 
 <% users.forEach(function(user) {  %>    
-    <img src='<%=user.avatar%>'> - <%= user.name %>
+    <img src='<%=user.avatar%>'> - <a href="/users/<%= user.id %>"><%= user.name %></a>
     <%});%>
 <%- include ../partial/footer %>
 

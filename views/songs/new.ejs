@@ -1,0 +1,16 @@
+<%- include ../partial/header %>
+<h1>New Song</h1>
+<form action="/songs" method="POST">
+<label>Artist
+<input type="text" name='artist'>
+</label>
+
+<label>Song Title
+<input type="text" name='title'>
+</label>
+
+<input type="submit" value='add song'>
+<input type="hidden" name='user' value='<%=user.name%>'>
+</form>
+
+<%- include ../partial/footer %>

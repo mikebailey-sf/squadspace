@@ -1,0 +1,10 @@
+<%- include ../partial/header %>
+<h1>All Songs</h1>
+
+<ul>
+<% songs.forEach(function(song){ %>
+    <li><%= song.artist %> - <%= song.title %></li>
+<% }); %>
+</ul>
+
+<%- include ../partial/footer %>

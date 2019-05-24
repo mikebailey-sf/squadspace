@@ -1,6 +1,7 @@
 const User = require('../models/user');
 module.exports = {
-    index
+    index,
+    show
 };
 
 function index(req, res, next) {
@@ -16,5 +17,13 @@ function index(req, res, next) {
         name: req.query.name,
         sortKey
         }); 
+    });
+}
+
+function show(req, res, next){
+    user = req.user;
+    res.render('users/show', {
+        user,
+        title: 'show user'
     });
 }
