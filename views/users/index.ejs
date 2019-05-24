@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <ul><li>
-      <% if (user) { %>
-        <a href="/logout">Log Out</a>
-        <% } else { %>
-          <a href="/auth/google">Login w/ Google</a>
-          <%}%>
-        </ul>
+<%- include ../partial/header %>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include ../partial/footer %>
+
