@@ -3,7 +3,13 @@
 
 <ul>
 <% songs.forEach(function(song){ %>
-    <li><%= song.artist %> - <%= song.title %></li>
+    <li><%= song.artist %> - <%= song.title %>
+    <% if (song.user==user.id){ %>
+        <form method='POST' action="/songs/<%= song.id %>/?_method=DELETE">
+            <input type="submit" value='x'>
+        </form>
+   <% } %>
+    </li>
 <% }); %>
 </ul>
 

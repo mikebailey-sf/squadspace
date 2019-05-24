@@ -14,6 +14,7 @@ var songSchema = new Schema({
     album: String,
     tags: [{type: String}],
     link: String,
+    user: {type: Schema.Types.ObjectId},
     comments: [commentSchema]
 }, {
     timestamps: true

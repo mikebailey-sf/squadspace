@@ -6,5 +6,6 @@ router.get('/', songsController.index);
 router.get('/new', songsController.new);
 router.get('/:id', songsController.show);
 router.post('/', songsController.create);
+router.delete('/:id', songsController.delete);
 
 module.exports = router;

@@ -5,7 +5,8 @@ module.exports = {
     index,
     show,
     new: newSong,
-    create
+    create,
+    delete: deleteSong
 };
 
 function index(req,res) {
@@ -29,6 +30,7 @@ function newSong(req,res) {
 
 function create(req,res) {
     var song = new Song(req.body);
+    console.log(song.user);
     req.user.songs.push(song.id);
     req.user.save();
     song.save(function(err){
@@ -36,4 +38,12 @@ function create(req,res) {
         res.redirect('songs/new');
     });
 }
+
+function deleteSong(req, res) {
+    console.log('asdfasdfasdf');
+    console.log(req.params.id);
+    Song.findOneAndDelete({_id: req.params.id}).exec();
+    res.redirect('/songs');
+}
+
 
