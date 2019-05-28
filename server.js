@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
+var LastFM = require('last-fm');
 
 require('dotenv').config();
 require('./config/database');
@@ -15,6 +16,7 @@ require('./config/passport');
 var songsRouter = require('./routes/songs');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const lastfm = new LastFM('97963145409304edb5c0898d4add1479', { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
 
 var app = express();
 

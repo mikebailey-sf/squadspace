@@ -1,9 +1,9 @@
 <%- include ../partial/header %>
 <h1>All Songs</h1>
 
-<ul>
+<ul class='list-group'>
 <% songs.forEach(function(song){ %>
-    <li><%= song.artist %> - <%= song.title %>
+    <li class='list-group-item'><%= song.artist %> - <%= song.title %>
     <% if (song.user==user.id){ %>
         <form method='POST' action="/songs/<%= song.id %>/?_method=DELETE">
             <input type="submit" value='x'>

@@ -1,0 +1,16 @@
+<%- include ../partial/header %>
+<ul>
+    <% data.result.forEach(function(result){ %>
+        <li><%= result.artistName %> - <%= result.name %>
+            <form action="/songs" method="POST">
+
+                <input type="submit" value='add song'>
+                <input type="hidden" name='artist' value='<%= result.artistName %>'>
+                <input type="hidden" name='title' value='<%= result.name %>'>
+                <input type="hidden" name='user' value='<%=user%>'>
+                </form>
+        </li>
+    <% }); %>
+    </ul>
+
+<%- include ../partial/footer %>

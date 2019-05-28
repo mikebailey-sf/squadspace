@@ -1,0 +1,12 @@
+<%- include ../partial/header %>
+<h1>Search Song</h1>
+<form action="/songs/search" method="POST">
+<label>Search Field
+<input type="text" name='search'>
+</label>
+
+<input type="submit" value='Search'>
+<input type="hidden" name='user' value='<%=user.id%>'>
+</form>
+
+<%- include ../partial/footer %>

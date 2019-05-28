@@ -1,12 +1,16 @@
 var Song = require('../models/song');
 var User = require('../models/user');
+const LastFM = require('last-fm')
+const lastfm = new LastFM('97963145409304edb5c0898d4add1479', { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
+  
 
 module.exports = {
     index,
     show,
     new: newSong,
     create,
-    delete: deleteSong
+    delete: deleteSong,
+    search
 };
 
 function index(req,res) {
@@ -30,20 +34,24 @@ function newSong(req,res) {
 
 function create(req,res) {
     var song = new Song(req.body);
-    console.log(song.user);
     req.user.songs.push(song.id);
     req.user.save();
     song.save(function(err){
-        if (err) return res.render('songs/new');
-        res.redirect('songs/new');
+        if (err) return res.render('songs/');
+        res.redirect('songs/');
     });
 }
 
 function deleteSong(req, res) {
-    console.log('asdfasdfasdf');
-    console.log(req.params.id);
     Song.findOneAndDelete({_id: req.params.id}).exec();
     res.redirect('/songs');
 }
 
-
+function search(req, res){
+    lastfm.trackSearch({ q: req.body.search }, (err, data) => {
+        var user = req.body.user;
+        if (err) console.error(err)
+        else console.log(data)
+        res.render('songs/results', {title: 'results', data, user});
+      })    
+}
