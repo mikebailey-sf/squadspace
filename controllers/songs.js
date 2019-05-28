@@ -25,7 +25,14 @@ function index(req,res) {
 }
 
 function show(req,res) {
-    
+    var id = req.params.id;
+    var track = {};
+    Song.findById(id, function(err, song){
+        lastfm.trackInfo({ track: song.title, artist: song.artist }, (err, data) => {
+            console.log(data);
+            res.render('songs/show', {title: 'show details', user: req.user, data});
+        });
+    });
 }
 
 function newSong(req,res) {
@@ -50,8 +57,6 @@ function deleteSong(req, res) {
 function search(req, res){
     lastfm.trackSearch({ q: req.body.search }, (err, data) => {
         var user = req.body.user;
-        if (err) console.error(err)
-        else console.log(data)
         res.render('songs/results', {title: 'results', data, user});
       })    
 }

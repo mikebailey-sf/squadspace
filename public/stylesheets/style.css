@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+
+form {
+  display: inline;
+}
+
+.song-box {
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}

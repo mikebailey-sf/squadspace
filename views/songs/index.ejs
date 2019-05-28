@@ -1,16 +1,17 @@
 <%- include ../partial/header %>
 <h1>All Songs</h1>
-
-<ul class='list-group'>
+<div class='container'>
+<div class='row'>
 <% songs.forEach(function(song){ %>
-    <li class='list-group-item'><%= song.artist %> - <%= song.title %>
+    <div class='song-box col-md-6'>
+    <a href="/songs/<%= song.id %>"><%= song.artist %> - <%= song.title %></a>
     <% if (song.user==user.id){ %>
         <form method='POST' action="/songs/<%= song.id %>/?_method=DELETE">
-            <input type="submit" value='x'>
+            <input type="submit" value='Delete'>
         </form>
    <% } %>
-    </li>
+    </div>
 <% }); %>
-</ul>
+</div>
 
 <%- include ../partial/footer %>
