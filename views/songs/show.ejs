@@ -15,7 +15,7 @@
                 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= youtubeResult.raw.id.videoId %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <% } else { %>
-                <p>YouTube API Down or API Quota was filled</p>
+                <p>YouTube API Daily Quota Filled</p>
             <% } %>
         </div>
         <div class="col-md-4 show-small">
@@ -49,6 +49,7 @@
                             <input type="hidden" name="commentId" value="<%= comment.id %>">
                             <input type="hidden" name="songId" value="<%= song.id %>">
                             <input type="submit" value='Edit'>
+                            <input type="text" name='content'>
                         </form>
                     </li>
                <% });%>

@@ -12,7 +12,6 @@ module.exports = {
 
 function create(req,res) {
     Song.findById(req.params.id, function(err, song){
-        console.log(err);
         song.comments.push({
             content: req.body.comment,
             user: user.name,
@@ -24,11 +23,14 @@ function create(req,res) {
 }
 
 function edit(req,res) {
-    console.log(req.body.commentId);
-    console.log(req.body.songId);
-    Song.findById(req.body.songId, function(err,song){
-        song.find({comment: req.body.commentId}, function(err,comment){
-            comment.update(comment.id, req.body.content); 
-        });
+    Song.findById(req.body.songId)
+    .then((song) => {
+        var comment = song.comments.id(req.body.commentId);
+        comment.content = req.body.content;
+        song.save();
+    })
+    .then(function(){
+        res.redirect(`/songs/${req.body.songId}`);
     });
+
 }
