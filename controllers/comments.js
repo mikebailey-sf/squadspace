@@ -5,7 +5,8 @@ const lastfm = new LastFM(process.env.LASTFM_KEY, { userAgent: 'MyApp/1.0.0 (htt
   
 
 module.exports = {
-    create
+    create,
+    edit
 };
 
 
@@ -14,9 +15,16 @@ function create(req,res) {
         console.log(err);
         song.comments.push({
             content: req.body.comment,
-            user: user.name
+            user: user.name,
+            userId: user.id
         });
         song.save();
         res.redirect('/songs/'+ req.params.id);
     });
+}
+
+function edit(req,res) {
+    console.log(req.body.commentId);
+    console.log(req.body.songId);
+    
 }

@@ -4,6 +4,7 @@ var songsController = require('../controllers/songs');
 
 
 router.post('/songs/:id/comments', commentsController.create);
+router.put('/songs/:id/comments/:id', commentsController.edit);
 
 
 

@@ -11,6 +11,14 @@ form {
   display: inline;
 }
 
+.show-small, .show-large {
+  border: 1px solid red;
+}
+
+.comment-button {
+  width: 80%;
+}
+
 .song-box {
   padding: 20px;
   border: 1px solid grey;
@@ -37,4 +45,13 @@ h1 {
   list-style: none;
   line-height: 150%;
   text-align: left;
+}
+
+.show-list, .comment-list {
+  padding-inline-start: 0px;
+
+}
+
+.navbar {
+  margin-bottom: 24px;
 }

@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var commentSchema = new Schema({
     content: String,
     user: String,
+    userId: {type: Schema.Types.ObjectId, ref: 'User'},
 }, {
     timestamps: true
 });

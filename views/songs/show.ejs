@@ -41,15 +41,22 @@
             <% if (song.comments) {
                 song.comments.forEach(function(comment){ %>
                     <li>
-                        <%= comment.user %><br>
+                        <span class="user-name"><%= comment.user %></span><br>
                         <%= comment.content %>
+                        <form method='POST' action="/songs/<%= song.id %>/comments/<%= comment.id %>/?_method=PUT">
+                            <input type="hidden" name="commentId" value="<%= comment.id %>">
+                            <input type="hidden" name="songId" value="<%= song.id %>">
+                            <input type="submit" value='Edit'>
+                        </form>
                     </li>
                <% });%>
             <% } %> 
             </ul>   
-            <form action="/songs/<%=song.id%>/comments" method='POST'>
-                <input type="text" name="comment">
-                <input class="btn btn-primary" type="submit" value='Comment'>
+            <form class="form-inline" action="/songs/<%=song.id%>/comments" method='POST'>
+                <div class="form-group mx-sm-3 mb-2">
+                    <input placeholder="..." class="form-control" type="text" name="comment">
+                    <button type="submit" class="btn btn-primary mb-2 comment-button">Comment</button>
+                </div>
             </form>
         </div>
     </div>
