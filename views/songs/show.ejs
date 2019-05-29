@@ -24,7 +24,7 @@
         <div class="col-md-12">
             <p>Comments</p>
             <% if (song.comments) {%>
-                <p><%= song.comments[0] %></p>
+                <p><%= song.comments[0].content %></p>
             <% } %>    
             <form action="/songs/<%=song.id%>/comments" method='POST'>
                 <input type="text" name="comment">

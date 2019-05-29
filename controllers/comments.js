@@ -11,7 +11,12 @@ module.exports = {
 
 function create(req,res) {
     Song.findById(req.params.id, function(err, song){
-        song.comments.push('test');
+        console.log(err);
+        song.comments.push({
+            content: req.body.comment,
+            user: user.id
+        });
+        song.save();
         res.redirect('/songs/'+ req.params.id);
     });
 }

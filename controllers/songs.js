@@ -28,10 +28,8 @@ function show(req,res) {
     var id = req.params.id;
     var track = {};
     Song.findById(id, function(err, song){
-        console.log(song.title);
-        console.log(song.artist);
+
         lastfm.trackInfo({ name: song.title, artistName: song.artist }, (err, data) => {
-            console.log(data);
             res.render('songs/show', {title: 'show details', user: req.user, data, song});
         });
     });
@@ -52,7 +50,7 @@ function create(req,res) {
 }
 
 function deleteSong(req, res) {
-    Song.findOneAndDelete({_id: req.params.id}).exec();
+    Song.findOneAndDelete({_id: req.params.id}).exec();ƒ
     res.redirect('/songs');
 }
 
