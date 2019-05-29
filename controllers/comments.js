@@ -14,7 +14,7 @@ function create(req,res) {
         console.log(err);
         song.comments.push({
             content: req.body.comment,
-            user: user.id
+            user: user.name
         });
         song.save();
         res.redirect('/songs/'+ req.params.id);

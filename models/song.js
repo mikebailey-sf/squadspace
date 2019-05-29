@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
     content: String,
-    user: {type: Schema.Types.ObjectId, ref: 'User'},
+    user: String,
 }, {
     timestamps: true
 });

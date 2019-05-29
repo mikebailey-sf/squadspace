@@ -2,7 +2,8 @@ var Song = require('../models/song');
 var User = require('../models/user');
 const LastFM = require('last-fm')
 const lastfm = new LastFM(process.env.LASTFM_KEY, { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
-  
+const YouTube = require('simple-youtube-api');
+const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
 module.exports = {
     index,
@@ -25,12 +26,22 @@ function index(req,res) {
 }
 
 function show(req,res) {
-    var id = req.params.id;
-    var track = {};
+    var id = req.params.id;  
     Song.findById(id, function(err, song){
         lastfm.trackInfo({ name: song.title, artistName: song.artist, limit: 3 }, (err, data) => {
             lastfm.trackSimilar({ name: song.title, artistName: song.artist }, (err, similar) => {
-                res.render('songs/show', {title: 'show details', user: req.user, data, song, similar});
+                youtube.searchVideos(song.artist + song.title, 4)
+                .then(results => {
+                    var youtubeResult = results[0];
+                    res.render('songs/show', {
+                        title: 'show details', 
+                        user: req.user, 
+                        data, 
+                        song, 
+                        similar,
+                        youtubeResult
+                    });            
+                }); 
             });
         });
     });

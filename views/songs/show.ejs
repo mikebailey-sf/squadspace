@@ -1,35 +1,41 @@
 <%- include ../partial/header %>
-<h1>Song Details</h1>
+<h1><%= data.artistName %> - <%= data.name %></h1>
 <div class='container'>
     <div class="row">
-        <div class="col-md-4">
-            <% if (data.images) { %>
-            <img src="<%=data.images[2]%>" alt="Album Cover">
+        <div class="col-md-4 show-small">
+            <% if (data.images[3]) { %>
+                <img src="<%=data.images[3]%>" alt="Album Cover"><br>
+                <span><%= data.albumName %></span>
+            <% } else { %>
+                <p>Thumbnail Missing</p>
+            <%}%>
+        </div>
+        <div class="col-md-8 show-large">
+            <% if (youtubeResult) { console.log('this fired')%>
+                
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= youtubeResult.raw.id.videoId %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <% } %>
         </div>
-        <div class="col-md-8">
-            <p>
-                <%= data.artistName %> - <%= data.name %>
-            </p>
-            <p>
-                <%= data.albumName %>    
-            </p>
-            <p>Suggested Tags:</p>
-            <ul>
-                <% data.tags.forEach(function(tag){ %>
-                    <li><%=tag%>
-                <% }); %>
-            </ul>
-            <p>Similar Tracks</p>
-            <ul>
+        <div class="col-md-4 show-small">
+            <% if (data.tags) { %>
+                <h3>Suggested Tags:</h3>
+                <ul class="show-list">
+                    <% data.tags.forEach(function(tag){ %>
+                        <li><%=tag%>
+                    <% }); %>
+                </ul>
+            <% } %>    
+
+            <h3>Similar Tracks</h3>
+            <ul class="show-list">
                 <% for (i=0; i<5; i++) { %>
                     <li><%= similar.track[i].artist.name %> - <%= similar.track[i].name %>
                 <% } %>
             </ul>
         </div>
-        <div class="col-md-12">
-            <p>Comments</p>
-            <ul>
+        <div class="col-md-8 show-large">
+            <h3>Comments</h3>
+            <ul class="comment-list">
             <% if (song.comments) {
                 song.comments.forEach(function(comment){ %>
                     <li>
