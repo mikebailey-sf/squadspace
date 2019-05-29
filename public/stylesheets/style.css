@@ -61,7 +61,14 @@ form {
 .song-box {
   padding: 20px;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: var(--sc);
+  margin: 5px;
+}
+
+.song-box a {
+  font-size: 120%;
+  color: black;
 }
 
 h1 {
@@ -105,3 +112,8 @@ h1 {
 .navbar {
   margin: 24px 0px 24px 0px;
 }
+
+.navbar li {
+  padding-right: 4em;
+}
+

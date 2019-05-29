@@ -9,38 +9,39 @@
     <div id="top">
       <h1 id="name">Soul Space</h1>
       <h3 id="tagline">All-in-one platform for building your soul playlist</h3>
-      <div class='float-right'>
-          <% if (user) { %>
-            <a href="/logout">Log Out</a>
-            <% } else { %>
-              <a href="/auth/google">Login w/ Google</a>
-              <%}%>
-      </div>
+
     </div>  
 
       <nav class="navbar navbar-expand-sm bg-light">
 
           <!-- Links -->
           <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav-link" href="/">Home</a>
-                </li>
-            <% if (user) { %>                
+
+            
             <li class="nav-item">
               <a class="nav-link" href="/songs">List Songs</a>
             </li>
+            <% if (user) { %>                
             <li class="nav-item">
-              <a class="nav-link" href="/songs/new">Add Song</a>
-            </li>
+              <a class="nav-link" href="/songs/search">Search for Song</a>
+            </li>         
             <li class="nav-item">
-              <a class="nav-link" href="/songs/search">Search</a>
-            </li>            
+                <a class="nav-link" href="/songs/new">Add Custom Song</a>
+              </li>               
             <% } %>
+            <!---
             <li class="nav-item">
               <a class="nav-link" href="/users">Users</a>
             </li>
+          -->
           </ul>
-        
+      <div class="float-right">
+          <% if (user) { %>
+            <a href="/logout">Log Out</a  >
+            <% } else { %>
+              <a href="/auth/google">Login w/ Google</a>
+              <%}%>
+      </div>        
         </nav>
 
       
