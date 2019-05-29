@@ -28,9 +28,10 @@ function show(req,res) {
     var id = req.params.id;
     var track = {};
     Song.findById(id, function(err, song){
-
-        lastfm.trackInfo({ name: song.title, artistName: song.artist }, (err, data) => {
-            res.render('songs/show', {title: 'show details', user: req.user, data, song});
+        lastfm.trackInfo({ name: song.title, artistName: song.artist, limit: 3 }, (err, data) => {
+            lastfm.trackSimilar({ name: song.title, artistName: song.artist }, (err, similar) => {
+                res.render('songs/show', {title: 'show details', user: req.user, data, song, similar});
+            });
         });
     });
 }

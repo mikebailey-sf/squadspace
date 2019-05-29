@@ -20,12 +20,25 @@
                     <li><%=tag%>
                 <% }); %>
             </ul>
+            <p>Similar Tracks</p>
+            <ul>
+                <% for (i=0; i<5; i++) { %>
+                    <li><%= similar.track[i].artist.name %> - <%= similar.track[i].name %>
+                <% } %>
+            </ul>
         </div>
         <div class="col-md-12">
             <p>Comments</p>
-            <% if (song.comments) {%>
-                <p><%= song.comments[0].content %></p>
-            <% } %>    
+            <ul>
+            <% if (song.comments) {
+                song.comments.forEach(function(comment){ %>
+                    <li>
+                        <%= comment.user %><br>
+                        <%= comment.content %>
+                    </li>
+               <% });%>
+            <% } %> 
+            </ul>   
             <form action="/songs/<%=song.id%>/comments" method='POST'>
                 <input type="text" name="comment">
                 <input type="submit" value='submit comment'>
