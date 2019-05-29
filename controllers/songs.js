@@ -62,7 +62,7 @@ function create(req,res) {
 }
 
 function deleteSong(req, res) {
-    Song.findOneAndDelete({_id: req.params.id}).exec();ƒ
+    Song.findOneAndDelete({_id: req.params.id}).exec();
     res.redirect('/songs');
 }
 

@@ -16,3 +16,25 @@ form {
   border: 1px solid grey;
   border-radius: 5px;
 }
+
+h1 {
+  font-size: 2em; 
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.show-small, .show-large {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.show-small span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.show-list li, .comment-list li{
+  list-style: none;
+  line-height: 150%;
+  text-align: left;
+}

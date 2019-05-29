@@ -3,7 +3,7 @@
 <div class='container'>
     <div class="row">
         <div class="col-md-4 show-small">
-            <% if (data.images[3]) { %>
+            <% if (data.images) { %>
                 <img src="<%=data.images[3]%>" alt="Album Cover"><br>
                 <span><%= data.albumName %></span>
             <% } else { %>
@@ -17,7 +17,7 @@
             <% } %>
         </div>
         <div class="col-md-4 show-small">
-            <% if (data.tags) { %>
+            <% if (data.tags.length > 1) { %>
                 <h3>Suggested Tags:</h3>
                 <ul class="show-list">
                     <% data.tags.forEach(function(tag){ %>
@@ -28,8 +28,10 @@
 
             <h3>Similar Tracks</h3>
             <ul class="show-list">
-                <% for (i=0; i<5; i++) { %>
-                    <li><%= similar.track[i].artist.name %> - <%= similar.track[i].name %>
+                <% if (similar.track.length > 1){ %>
+                    <% for (i=0; i<5; i++) { %>
+                        <li><%= similar.track[i].artist.name %> - <%= similar.track[i].name %>
+                    <% } %>
                 <% } %>
             </ul>
         </div>
@@ -47,7 +49,7 @@
             </ul>   
             <form action="/songs/<%=song.id%>/comments" method='POST'>
                 <input type="text" name="comment">
-                <input type="submit" value='submit comment'>
+                <input class="btn btn-primary" type="submit" value='Comment'>
             </form>
         </div>
     </div>
