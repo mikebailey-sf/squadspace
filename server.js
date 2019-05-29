@@ -14,6 +14,7 @@ require('./config/passport');
 
 
 var songsRouter = require('./routes/songs');
+var commentsRouter = require('./routes/comments');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const lastfm = new LastFM('97963145409304edb5c0898d4add1479', { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
@@ -44,6 +45,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/songs', songsRouter);
+app.use('/', commentsRouter);
 
 
 // catch 404 and forward to error handler

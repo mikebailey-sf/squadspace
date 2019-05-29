@@ -1,7 +1,7 @@
 var Song = require('../models/song');
 var User = require('../models/user');
 const LastFM = require('last-fm')
-const lastfm = new LastFM('97963145409304edb5c0898d4add1479', { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
+const lastfm = new LastFM(process.env.LASTFM_KEY, { userAgent: 'MyApp/1.0.0 (http://localhost:3000)' })
   
 
 module.exports = {
@@ -32,7 +32,7 @@ function show(req,res) {
         console.log(song.artist);
         lastfm.trackInfo({ name: song.title, artistName: song.artist }, (err, data) => {
             console.log(data);
-            res.render('songs/show', {title: 'show details', user: req.user, data});
+            res.render('songs/show', {title: 'show details', user: req.user, data, song});
         });
     });
 }
