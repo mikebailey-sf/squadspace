@@ -28,7 +28,9 @@ function show(req,res) {
     var id = req.params.id;
     var track = {};
     Song.findById(id, function(err, song){
-        lastfm.trackInfo({ track: song.title, artist: song.artist }, (err, data) => {
+        console.log(song.title);
+        console.log(song.artist);
+        lastfm.trackInfo({ name: song.title, artistName: song.artist }, (err, data) => {
             console.log(data);
             res.render('songs/show', {title: 'show details', user: req.user, data});
         });
@@ -55,7 +57,7 @@ function deleteSong(req, res) {
 }
 
 function search(req, res){
-    lastfm.trackSearch({ q: req.body.search }, (err, data) => {
+    lastfm.trackSearch({ q: req.body.search, limit: 50 }, (err, data) => {
         var user = req.body.user;
         res.render('songs/results', {title: 'results', data, user});
       })    

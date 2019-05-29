@@ -1,9 +1,25 @@
 <%- include ../partial/header %>
 <h1>Song Details</h1>
 <div class='container'>
-<p>
-    <%= data %>
-</p>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="<%=data.images[2]%>" alt="Album Cover">
+        </div>
+        <div class="col-md-8">
+            <p>
+                <%= data.artistName %> - <%= data.name %>
+            </p>
+            <p>
+                <%= data.albumName %>    
+            </p>
+            <p>Suggested Tags:</p>
+            <ul>
+                <% data.tags.forEach(function(tag){ %>
+                    <li><%=tag%>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <%- include ../partial/footer %>
