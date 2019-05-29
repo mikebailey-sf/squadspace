@@ -6,6 +6,18 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <div id="top">
+      <h1 id="name">Soul Space</h1>
+      <h3 id="tagline">All-in-one platform for building your soul playlist</h3>
+      <div class='float-right'>
+          <% if (user) { %>
+            <a href="/logout">Log Out</a>
+            <% } else { %>
+              <a href="/auth/google">Login w/ Google</a>
+              <%}%>
+      </div>
+    </div>  
+
       <nav class="navbar navbar-expand-sm bg-light">
 
           <!-- Links -->
@@ -30,11 +42,5 @@
           </ul>
         
         </nav>
-    <div class='float-right'>
-      <% if (user) { %>
-        <a href="/logout">Log Out</a>
-        <% } else { %>
-          <a href="/auth/google">Login w/ Google</a>
-          <%}%>
-    </div>
+
       

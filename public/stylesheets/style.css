@@ -1,6 +1,44 @@
+:root {
+  --pc: #753EB3;
+  --sc: #FFD08C;
+}
+
+@font-face {
+  font-family: 'keep_on_truckinregular';
+  src: url('kot-webfont.woff2') format('woff2'),
+       url('kot-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#name {
+  font-family: 'keep_on_truckinregular';
+  text-align: left;
+  font-size: 10vmin;
+  color: white;
+  display: inline;
+  width: 50%;
+
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: var(--sc);
+
+}
+
+#tagline {
+  float: right;
+  display: inline;
+  color: white;
+  font-family: sans-serif;
+  height: 90px;
+  vertical-align: bottom;
+  font-size: 20px;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--pc);
 }
 
 a {
@@ -12,7 +50,8 @@ form {
 }
 
 .show-small, .show-large {
-  border: 1px solid red;
+  border: 1px solid whitesmoke;
+  background-color: var(--pc);
 }
 
 .comment-button {
@@ -31,9 +70,20 @@ h1 {
   margin-bottom: 24px;
 }
 
+.song-header {
+  color: whitesmoke;
+  letter-spacing: 120%;
+}
+
 .show-small, .show-large {
   text-align: center;
   margin-bottom: 24px;
+  padding: 20px;
+  background-color: var(--sc);
+}
+
+.show-small img {
+  border: 1px solid white;
 }
 
 .show-small span {
@@ -53,5 +103,5 @@ h1 {
 }
 
 .navbar {
-  margin-bottom: 24px;
+  margin: 24px 0px 24px 0px;
 }
