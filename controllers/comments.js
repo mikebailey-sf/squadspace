@@ -26,5 +26,9 @@ function create(req,res) {
 function edit(req,res) {
     console.log(req.body.commentId);
     console.log(req.body.songId);
-    
+    Song.findById(req.body.songId, function(err,song){
+        song.find({comment: req.body.commentId}, function(err,comment){
+            comment.update(comment.id, req.body.content); 
+        });
+    });
 }

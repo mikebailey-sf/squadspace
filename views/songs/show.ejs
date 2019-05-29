@@ -14,6 +14,8 @@
             <% if (youtubeResult) { console.log('this fired')%>
                 
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= youtubeResult.raw.id.videoId %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <% } else { %>
+                <p>YouTube API Down or API Quota was filled</p>
             <% } %>
         </div>
         <div class="col-md-4 show-small">

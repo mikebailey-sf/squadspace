@@ -38,9 +38,18 @@ function show(req,res) {
                         user: req.user, 
                         data, 
                         song, 
-                        similar,
+                        similar,    
                         youtubeResult
                     });            
+                }).catch(function(){
+                    res.render('songs/show', {
+                        title: 'show details', 
+                        user: req.user, 
+                        data, 
+                        song, 
+                        similar,
+                        youtubeResult: null    
+                    });                             
                 }); 
             });
         });
