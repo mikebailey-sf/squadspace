@@ -11,14 +11,12 @@
   font-style: normal;
 }
 
-@media only screen and (max-width: 768px) {
 
-}
 
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;
-  font-size: 10vmin;
+  font-size: 14.5vmin;
   color: white;
   display: inline;
   width: 50%;
@@ -34,9 +32,9 @@
   display: inline;
   color: white;
   font-family: sans-serif;
-  height: 90px;
+  height: 40px;
   vertical-align: bottom;
-  font-size: 20px;
+  font-size: 3.5vmin;
 }
 
 body {
