@@ -83,5 +83,5 @@ function search(req, res){
     lastfm.trackSearch({ q: req.body.search, limit: 50 }, (err, data) => {
         var user = req.body.user;
         res.render('songs/results', {title: 'results', data, user});
-      })    
+    });    
 }

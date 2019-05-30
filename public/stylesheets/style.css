@@ -11,8 +11,6 @@
   font-style: normal;
 }
 
-
-
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;
@@ -20,21 +18,19 @@
   color: white;
   display: inline;
   width: 50%;
-
   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 4px;
   -webkit-text-stroke-color: var(--sc);
-
 }
 
 #tagline {
   float: right;
   display: inline;
   color: white;
-  font-family: sans-serif;
+  font-family: 'keep_on_truckinregular';
   height: 40px;
   vertical-align: bottom;
-  font-size: 3.5vmin;
+  font-size: 3.3vmin;
 }
 
 body {
@@ -47,13 +43,15 @@ a {
   color: #00B7FF;
 }
 
-form {
-  display: inline;
+.show-small, .show-large {
+  border: 2px solid whitesmoke;
+  background-color: var(--pc);
 }
 
-.show-small, .show-large {
-  border: 1px solid whitesmoke;
-  background-color: var(--pc);
+.show-small a {
+  color: black;
+  text-decoration: underline;
+  line-height: 200%;
 }
 
 .comment-button {
@@ -62,14 +60,18 @@ form {
 
 .song-box {
   padding: 20px;
-  border: 1px solid grey;
+  border: 2px solid whitesmoke;
   border-radius: 10px;
   background-color: var(--sc);
   margin: 5px;
 }
 
+.song-box p {
+  font-size: 4vmin;
+}
+
 .song-box a {
-  font-size: 120%;
+  font-size: 4vmin;
   color: black;
 }
 
@@ -121,7 +123,7 @@ h1, h2 {
   margin: 24px 0px 24px 0px;
   background-color: var(--sc) !important;
   border-radius: 10px;
-  border: 1px solid whitesmoke;
+  border: 2px solid whitesmoke;
 }
 
 .navbar li a{
@@ -150,4 +152,9 @@ h1, h2 {
   font-weight: bold;
   font-size:120%;
   line-height: 200%;
+}
+
+.form-center {
+  width: 50%;
+  margin: 0 auto;
 }

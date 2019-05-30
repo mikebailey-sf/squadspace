@@ -5,7 +5,7 @@
 <div class='container'>
     <div class="row">
         <div class="col-md-4 show-small">
-            <% if (data.images) { %>
+            <% if (data.images) { %>    
                 <img src="<%=data.images[2]%>" alt="Album Cover"><br>
                 <span><%= data.albumName %></span>
             <% } else { %>
@@ -40,7 +40,7 @@
                 <% } %>
             </ul>
         </div>
-        <div class="col-md-8 show-large">
+        <div class="col-md-8 show-large">   
             <h3>Comments</h3>
             <ul class="comment-list">
             <% if (song.comments) {
