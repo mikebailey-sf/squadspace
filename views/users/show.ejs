@@ -7,6 +7,11 @@
             <div class='song-box col-md-6'>
             <a href="/songs/<%= song.id %>"><%= song.artist %> - <%= song.title %></a>
         
+            <% if(user) {if (song.user==user.id){ %>
+                <form style="margin-top: 10px;" method='POST' action="/songs/<%= song.id %>/?_method=DELETE">
+                    <input type="submit" value='Delete'>
+                </form>
+           <% }} %>
             </div>
         <% }); %>
         </div>
