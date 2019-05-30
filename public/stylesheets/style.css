@@ -11,6 +11,15 @@
   font-style: normal;
 }
 
+input {
+  width: 75%;
+  height: 24px;
+}
+
+input[type=submit] {
+  width:20%;
+}
+
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;

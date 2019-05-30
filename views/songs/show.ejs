@@ -15,7 +15,7 @@
         <div class="col-md-8 show-large">
             <% if (youtubeResult) { console.log('this fired')%>
                 
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= youtubeResult.raw.id.videoId %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="302" height="170" src="https://www.youtube.com/embed/<%= youtubeResult.raw.id.videoId %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <% } else { %>
                 <p>My YouTube API Query limit has been filled. Can you believe it?!</p>
                 
@@ -49,21 +49,21 @@
                         <span class="user-name"><%= comment.user %></span><br>
                         <%= comment.content %>
                         <% if (user) {if (comment.userId == user.id) { %>
-                        <form method='POST' action="/songs/<%= song.id %>/comments/<%= comment.id %>/?_method=PUT">
+                        <form style="margin-top: 10px;" method='POST' action="/songs/<%= song.id %>/comments/<%= comment.id %>/?_method=PUT">
                             <input type="hidden" name="commentId" value="<%= comment.id %>">
                             <input type="hidden" name="songId" value="<%= song.id %>">
-                            <input type="submit" value='Edit/Delete'>
                             <input type="text" name='content'>
+                            <input class="btn btn-primary mb-2 comment-button" type="submit" value='Edit/Delete'>
                         </form>
                         <% }} %>
                     </li>
                <% });%>
             <% } %> 
             </ul>   
-            <form class="form-inline" action="/songs/<%=song.id%>/comments" method='POST'>
-                <div class="form-group mx-sm-3 mb-2">
-                    <input placeholder="..." class="form-control" type="text" name="comment">
-                    <button type="submit" class="btn btn-primary mb-2 comment-button">Comment</button>
+            <form action="/songs/<%=song.id%>/comments" method='POST'>
+                <div>
+                    <input placeholder="..." type="text" name="comment">
+                    <input type="submit" class="btn btn-primary mb-2 comment-button" value="Comment">
                 </div>
             </form>
         </div>
