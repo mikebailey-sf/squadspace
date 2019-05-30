@@ -91,6 +91,7 @@ h1 {
   margin-bottom: 24px;
   padding: 20px;
   background-color: var(--sc);
+  border-radius: 10px;
 }
 
 .show-small img {
@@ -116,6 +117,8 @@ h1 {
 .navbar {
   margin: 24px 0px 24px 0px;
   background-color: var(--sc) !important;
+  border-radius: 10px;
+  border: 1px solid whitesmoke;
 }
 
 .navbar li a{
@@ -125,4 +128,23 @@ h1 {
 
 #login {
   color: black;
+}
+
+.delete-button {
+  background-color:white;
+}
+
+.comment-list li {
+  background-color: white;
+  border-radius:10px;
+  padding: 10px 10px 10px 20px;
+  margin: 10px;
+  line-height: 150%;
+}
+
+.comment-list li span {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size:120%;
+  line-height: 200%;
 }

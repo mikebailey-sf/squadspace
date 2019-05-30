@@ -45,14 +45,14 @@
                     <li>
                         <span class="user-name"><%= comment.user %></span><br>
                         <%= comment.content %>
-                        <% if (comment.userId == user.id) { %>
+                        <% if (user) {if (comment.userId == user.id) { %>
                         <form method='POST' action="/songs/<%= song.id %>/comments/<%= comment.id %>/?_method=PUT">
                             <input type="hidden" name="commentId" value="<%= comment.id %>">
                             <input type="hidden" name="songId" value="<%= song.id %>">
                             <input type="submit" value='Edit'>
                             <input type="text" name='content'>
                         </form>
-                        <% } %>
+                        <% }} %>
                     </li>
                <% });%>
             <% } %> 
