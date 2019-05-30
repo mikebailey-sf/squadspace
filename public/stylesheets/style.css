@@ -20,6 +20,7 @@ input[type=submit] {
   width:20%;
 }
 
+
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;
@@ -72,7 +73,6 @@ a {
   border: 2px solid whitesmoke;
   border-radius: 10px;
   background-color: var(--sc);
-  margin: 5px;
 }
 
 .song-box p {
@@ -88,6 +88,7 @@ h1, h2 {
   font-size: 2em; 
   text-align: center;
   margin-bottom: 24px;
+  font-family: 'keep_on_truckinregular';
 }
 
 .song-header, .user-header {
@@ -129,20 +130,27 @@ h1, h2 {
 }
 
 .navbar {
+  width: 100%;
   margin: 24px 0px 24px 0px;
   background-color: var(--sc) !important;
   border-radius: 10px;
   border: 2px solid whitesmoke;
 }
 
-.navbar li a{
-  
+.navbar ul {
+  width: 100%;
+}
+
+.navbar ul li {
+  width: 20%;
+}
+
+
+.navbar li a, #login{
+  font-size: 2vmin;
   color: black;
 }
 
-#login {
-  color: black;
-}
 
 .delete-button {
   background-color:white;
@@ -166,4 +174,8 @@ h1, h2 {
 .form-center {
   width: 50%;
   margin: 0 auto;
+}
+
+.text-sc {
+  color: var(--sc);
 }

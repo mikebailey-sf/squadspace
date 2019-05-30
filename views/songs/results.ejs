@@ -3,7 +3,7 @@
 <div class="container">
 <div class='row'>
     <% data.result.forEach(function(result){ %>
-        <div class='song-box col-md-5 panel'>
+        <div class='song-box col-md-6 panel'>
             <p><%= result.artistName %> - <%= result.name %></p>
             <form action="/songs" method="POST">
                 <input type="submit" value='add song'>
