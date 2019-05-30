@@ -24,7 +24,7 @@ input[type=submit] {
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;
-  font-size: 14.5vmin;
+  font-size: 13vmin;
   color: white;
   display: inline;
   width: 50%;
@@ -149,6 +149,7 @@ h1, h2 {
 .navbar li a, #login{
   font-size: 2vmin;
   color: black;
+  width: 100%;
 }
 
 
@@ -178,4 +179,17 @@ h1, h2 {
 
 .text-sc {
   color: var(--sc);
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .navbar li a, #login{
+    font-size: 6vmin;
+  }
+
+  .navbar ul li a, .navbar ul li{
+    width: 100%;
+  }
+  #tagline {
+    font-size: 5vmin;
+  }
 }
