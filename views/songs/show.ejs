@@ -53,7 +53,7 @@
                             <input type="hidden" name="commentId" value="<%= comment.id %>">
                             <input type="hidden" name="songId" value="<%= song.id %>">
                             <input type="text" name='content'>
-                            <input class="btn btn-primary mb-2 comment-button" type="submit" value='Edit/Delete'>
+                            <input type="submit" value='Edit/Delete'>
                         </form>
                         <% }} %>
                     </li>
@@ -63,7 +63,7 @@
             <form action="/songs/<%=song.id%>/comments" method='POST'>
                 <div>
                     <input placeholder="..." type="text" name="comment">
-                    <input type="submit" class="btn btn-primary mb-2 comment-button" value="Comment">
+                    <input type="submit" value="Comment">
                 </div>
             </form>
         </div>
