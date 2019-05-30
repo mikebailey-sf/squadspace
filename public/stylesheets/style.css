@@ -11,6 +11,10 @@
   font-style: normal;
 }
 
+@media only screen and (max-width: 768px) {
+
+}
+
 #name {
   font-family: 'keep_on_truckinregular';
   text-align: left;
@@ -111,9 +115,14 @@ h1 {
 
 .navbar {
   margin: 24px 0px 24px 0px;
+  background-color: var(--sc) !important;
 }
 
-.navbar li {
+.navbar li a{
   padding-right: 4em;
+  color: black;
 }
 
+#login {
+  color: black;
+}

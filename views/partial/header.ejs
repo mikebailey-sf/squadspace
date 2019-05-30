@@ -12,7 +12,7 @@
 
     </div>  
 
-      <nav class="navbar navbar-expand-sm bg-light">
+      <nav class="navbar navbar-expand-md">
 
           <!-- Links -->
           <ul class="navbar-nav">
@@ -37,9 +37,9 @@
           </ul>
       <div class="float-right">
           <% if (user) { %>
-            <a href="/logout">Log Out</a  >
+            <a id="login" href="/logout">Log Out</a  >
             <% } else { %>
-              <a href="/auth/google">Login w/ Google</a>
+              <a id="login" href="/auth/google">Login w/ Google</a>
               <%}%>
       </div>        
         </nav>

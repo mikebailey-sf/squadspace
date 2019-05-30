@@ -1,11 +1,9 @@
 var router = require('express').Router();
 var passport = require('passport');
+var songsController = require('../controllers/songs');
 
 // The root route renders our only view
-router.get('/', function(req, res) {
-  res.render('index', {title: 'SoulSpace', user: null});
- 
-});
+router.get('/', songsController.index);
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
