@@ -23,10 +23,10 @@ function index(req, res, next) {
 }
 
 function show(req, res, next){
-    console.log(req.params.id);
     User.findById(req.params.id, function(err, user){
         Song.find({user: req.params.id}, function(err,songs) { 
             res.render('users/show', {
+                current: req.user.id,
                 user,
                 songs,
                 title: 'show user'
