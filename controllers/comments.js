@@ -23,13 +23,25 @@ function create(req,res) {
 }
 
 function edit(req,res) {
-    Song.findById(req.body.songId)
-    .then((song) => {
-        var comment = song.comments.id(req.body.commentId);
-        comment.content = req.body.content;
-        song.save();
-    })
-    .then(function(){
-        res.redirect(`/songs/${req.body.songId}`);
-    });
+    if (req.body.content) {
+        Song.findById(req.body.songId)
+        .then((song) => {
+            var comment = song.comments.id(req.body.commentId);
+            comment.content = req.body.content;
+            song.save();
+        })
+        .then(function(){
+            res.redirect(`/songs/${req.body.songId}`);
+        });
+    } else {
+        Song.findById(req.body.songId)
+        .then((song) => {
+            song.comments.id(req.body.commentId).remove();
+            song.save();
+        })
+        .then(function(){
+            res.redirect(`/songs/${req.body.songId}`);
+        });
+
+    }
 }

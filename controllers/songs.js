@@ -28,6 +28,8 @@ function index(req,res) {
 function show(req,res) {
     var id = req.params.id;  
     Song.findById(id, function(err, song){
+        User.findById(song.user, function(err, user){
+        song.userName = user.name;
         lastfm.trackInfo({ name: song.title, artistName: song.artist, limit: 3 }, (err, data) => {
             lastfm.trackSimilar({ name: song.title, artistName: song.artist }, (err, similar) => {
                 youtube.searchVideos(song.artist + song.title, 4)
@@ -39,7 +41,7 @@ function show(req,res) {
                         data, 
                         song, 
                         similar,    
-                        youtubeResult
+                        youtubeResult: null
                     });            
                 }).catch(function(){
                     res.render('songs/show', {
@@ -53,6 +55,8 @@ function show(req,res) {
                 }); 
             });
         });
+        });
+
     });
 }
 

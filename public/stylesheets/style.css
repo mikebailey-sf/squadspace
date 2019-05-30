@@ -73,16 +73,21 @@ form {
   color: black;
 }
 
-h1 {
+h1, h2 {
   font-size: 2em; 
   text-align: center;
   margin-bottom: 24px;
 }
 
-.song-header {
+.song-header, .user-header {
   color: whitesmoke;
   letter-spacing: 120%;
 }
+.user-header {
+  size: 80%;
+}
+
+
 
 .show-small, .show-large {
   text-align: center;
