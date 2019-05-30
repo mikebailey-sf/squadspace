@@ -12,7 +12,6 @@ var commentSchema = new Schema({
 var songSchema = new Schema({
     title: {type: String, required: true},
     artist: {type: String, required: true},
-    album: String,
     tags: [{type: String}],
     link: String,
     user: {type: Schema.Types.ObjectId},

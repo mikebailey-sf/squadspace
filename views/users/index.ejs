@@ -1,9 +1,12 @@
 <%- include ../partial/header %>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
+    <h1 class="song-header">Users</h1>
+<div class="container">
 <% users.forEach(function(user) {  %>    
-    <img src='<%=user.avatar%>'> - <a href="/users/<%= user.id %>"><%= user.name %></a>
+    <div class="song-box">
+        <a href="/users/<%= user.id %>"><%= user.name %></a>
+    </div>
+    
     <%});%>
+</div>    
 <%- include ../partial/footer %>
 

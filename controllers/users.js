@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const Song = require('../models/song');
+
 module.exports = {
     index,
     show
@@ -12,7 +14,7 @@ function index(req, res, next) {
       if (err) return next(err);
     res.render('users/index', {
         users,
-        title: 'welcome to oauth',
+        title: '',
         user: req.user,
         name: req.query.name,
         sortKey
@@ -21,9 +23,14 @@ function index(req, res, next) {
 }
 
 function show(req, res, next){
-    user = req.user;
-    res.render('users/show', {
-        user,
-        title: 'show user'
-    });
+    console.log(req.params.id);
+    User.findById(req.params.id, function(err, user){
+        Song.find({user: req.params.id}, function(err,songs) { 
+            res.render('users/show', {
+                user,
+                songs,
+                title: 'show user'
+            });
+        });    
+    })
 }

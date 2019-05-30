@@ -1,11 +1,14 @@
 <%- include ../partial/header %>
-<h1><%= user.name %>'s songs</h1>
+<h1 class="song-header"><%= user.name %>'s songs</h1>
 
-<ul>
-    <% user.songs.forEach(function(song){ %>
-        <li><%= song %></li>
-    <% }); %>
-</ul>
-
+<div class='container'>
+        <div class='row'>
+        <% songs.forEach(function(song){ %>
+            <div class='song-box col-md-6'>
+            <a href="/songs/<%= song.id %>"><%= song.artist %> - <%= song.title %></a>
+        
+            </div>
+        <% }); %>
+        </div>
 
 <%- include ../partial/footer %>
