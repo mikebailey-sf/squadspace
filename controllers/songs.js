@@ -41,7 +41,7 @@ function show(req,res) {
                         data, 
                         song, 
                         similar,    
-                        youtubeResult: null
+                        youtubeResult
                     });            
                 }).catch(function(){
                     res.render('songs/show', {
