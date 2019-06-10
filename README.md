@@ -1,6 +1,7 @@
 # Soul Space
 ### Your app for trading soul music with your friends.
-Logo: ![Alt](https://imgur.com/HVBDSDX "Title")
+
+<img src="https://imgur.com/HVBDSDX" alt="Screenshot"/>
 
 ### Soulspace allows you to:
 * add your favorite soul songs
